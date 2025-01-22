@@ -18,6 +18,15 @@ class Match {
     }
 
     static getId(homeTeam, awayTeam) {
+        if (
+            !homeTeam 
+            || !awayTeam 
+            || typeof homeTeam !== "string" 
+            || typeof awayTeam !== "string"
+        ) {
+            throw new Error("Failed to get match ID: please pass strings as homeTeam and awayTeam")
+        }
+        
         return homeTeam + awayTeam
     }
 
