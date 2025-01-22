@@ -7,10 +7,6 @@ describe('Match', () => {
         match = new Match("HomeTeam", "AwayTeam")
     })
 
-    it("should have creation date", () => {
-        expect(match.created).toBeInstanceOf(Date)
-    })
-
     it("should have ID", () => {
         expect(match.id).toEqual("HomeTeamAwayTeam")
     })

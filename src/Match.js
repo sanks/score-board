@@ -1,7 +1,6 @@
 class Match {
     homeTeamScore = 0
     awayTeamScore = 0
-    created = new Date()
 
     constructor(homeTeam, awayTeam) {
         if (
