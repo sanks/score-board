@@ -21,15 +21,15 @@ describe('ScoreBoard', () => {
 
     it("should throw an error if trying to start already existing match", () => {
         sb.startMatch("Home", "Away")
-        expect(sb.startMatch("Home", "Away")).toThrow()
+        expect(() => sb.startMatch("Home", "Away")).toThrow()
     })
 
     it("should throw an error if trying to start match with invalid params", () => {
-        expect(sb.startMatch()).toThrow()
-        expect(sb.startMatch("Team")).toThrow()
-        expect(sb.startMatch("Team", 1)).toThrow()
-        expect(sb.startMatch(1, "Team")).toThrow()
-        expect(sb.startMatch("Team", "")).toThrow()
+        expect(() => sb.startMatch()).toThrow()
+        expect(() => sb.startMatch("Team")).toThrow()
+        expect(() => sb.startMatch("Team", 1)).toThrow()
+        expect(() => sb.startMatch(1, "Team")).toThrow()
+        expect(() => sb.startMatch("Team", "")).toThrow()
     })
 
     it.todo("should finish match", () => {
@@ -39,15 +39,15 @@ describe('ScoreBoard', () => {
     })
 
     it("should throw an error if trying to finish non existing match", () => {
-        expect(sb.finishMatch("A", "B")).toThrow()
+        expect(() => sb.finishMatch("A", "B")).toThrow()
     })
 
     it("should throw an error if trying to finish match with invalid params", () => {
-        expect(sb.finishMatch()).toThrow()
-        expect(sb.finishMatch("Team")).toThrow()
-        expect(sb.finishMatch("Team", 1)).toThrow()
-        expect(sb.finishMatch(1, "Team")).toThrow()
-        expect(sb.finishMatch("Team", "")).toThrow()
+        expect(() => sb.finishMatch()).toThrow()
+        expect(() => sb.finishMatch("Team")).toThrow()
+        expect(() => sb.finishMatch("Team", 1)).toThrow()
+        expect(() => sb.finishMatch(1, "Team")).toThrow()
+        expect(() => sb.finishMatch("Team", "")).toThrow()
     })
 
     it ("should return match by team names", () => {
@@ -60,11 +60,11 @@ describe('ScoreBoard', () => {
     })
 
     it ("should throw an error if trying to get match with invalid params", () => {
-        expect(sb.getMatch()).toThrow()
-        expect(sb.getMatch("Team")).toThrow()
-        expect(sb.getMatch("Team", 1)).toThrow()
-        expect(sb.getMatch(1, "Team")).toThrow()
-        expect(sb.getMatch("Team", "")).toThrow()
+        expect(() => sb.getMatch()).toThrow()
+        expect(() => sb.getMatch("Team")).toThrow()
+        expect(() => sb.getMatch("Team", 1)).toThrow()
+        expect(() => sb.getMatch(1, "Team")).toThrow()
+        expect(() => sb.getMatch("Team", "")).toThrow()
     })
 
     it("should return list of matches ordered by total score and creation date desc", () => {

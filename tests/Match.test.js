@@ -12,16 +12,16 @@ describe('Match', () => {
     })
 
     it("should be created with valid team names", () => {
-        expect(match.homeTeamName).toEqual("HomeTeam")
-        expect(match.awayTeamName).toEqual("AwayTeam")
+        expect(match.homeTeam).toEqual("HomeTeam")
+        expect(match.awayTeam).toEqual("AwayTeam")
     })
     
     it("should throw an error when team names are invalid", () => {
-        expect(new Match()).toThrow()
-        expect(new Match("Team")).toThrow()
-        expect(new Match("Team", 1)).toThrow()
-        expect(new Match(1, "Team")).toThrow()
-        expect(new Match("Team", "")).toThrow()
+        expect(() => new Match()).toThrow()
+        expect(() => new Match("Team")).toThrow()
+        expect(() => new Match("Team", 1)).toThrow()
+        expect(() => new Match(1, "Team")).toThrow()
+        expect(() => new Match("Team", "")).toThrow()
     })
 
     it("should have score 0-0 by default", () => {
@@ -40,11 +40,11 @@ describe('Match', () => {
     })
 
     it("should throw an error when updating with invalid score", () => {
-        expect(match.setScore()).toThrow()
-        expect(match.setScore(1)).toThrow()
-        expect(match.setScore(-1, 0)).toThrow()
-        expect(match.setScore("0", 0)).toThrow()
-        expect(match.setScore(0, "1")).toThrow()
+        expect(() => match.setScore()).toThrow()
+        expect(() => match.setScore(1)).toThrow()
+        expect(() => match.setScore(-1, 0)).toThrow()
+        expect(() => match.setScore("0", 0)).toThrow()
+        expect(() => match.setScore(0, "1")).toThrow()
     })
 
     it("should calculate total score", () => {
