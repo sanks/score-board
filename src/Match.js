@@ -1,4 +1,7 @@
 class Match {
+    homeTeamScore = 0
+    awayTeamScore = 0
+    created = new Date()
 
     constructor(homeTeam, awayTeam) {
         if (
@@ -12,9 +15,6 @@ class Match {
 
         this.homeTeam = homeTeam
         this.awayTeam = awayTeam
-        this.homeTeamScore = 0
-        this.awayTeamScore = 0
-        this.created = new Date()
     }
 
     setScore(homeTeamScore, awayTeamScore) {
