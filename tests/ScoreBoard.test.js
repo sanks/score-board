@@ -11,7 +11,7 @@ describe('ScoreBoard', () => {
     it("should start multiple matches", () => {
         sb.startMatch("Home1", "Away1")
         sb.startMatch("Home2", "Away2")
-        expect(sb.matches).toHaveLength(2)
+        expect(sb.getMatches()).toHaveLength(2)
     })
 
     it("should return match after creation", () => {
@@ -34,8 +34,9 @@ describe('ScoreBoard', () => {
 
     it("should finish match", () => {
         sb.startMatch("Home", "Away")
-        expect(sb.matches).toHaveLength(1)
+        expect(sb.getMatches()).toHaveLength(1)
         sb.finishMatch("Home", "Away")
+        expect(sb.getMatches()).toHaveLength(0)
     })
 
     it("should throw an error if trying to finish non existing match", () => {
