@@ -22,8 +22,8 @@ class Match {
             typeof homeTeamScore !== "number"
             || typeof awayTeamScore !== "number"
             || homeTeamScore < 0
-            || !Number.isInteger(homeTeamScore)
             || awayTeamScore < 0
+            || !Number.isInteger(homeTeamScore)
             || !Number.isInteger(awayTeamScore)
         ) {
             throw new Error("Failed to set score: please pass positive integers for homeTeamScore and awayTeamScore")
@@ -36,7 +36,7 @@ class Match {
     get totalScore() {
         return this.homeTeamScore + this.awayTeamScore
     }
-    
+
 }
 
 module.exports = Match
