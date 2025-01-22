@@ -11,6 +11,10 @@ describe('Match', () => {
         expect(match.created).toBeInstanceOf(Date)
     })
 
+    it("should have ID", () => {
+        expect(match.id).toEqual("HomeTeamAwayTeam")
+    })
+
     it("should be created with valid team names", () => {
         expect(match.homeTeam).toEqual("HomeTeam")
         expect(match.awayTeam).toEqual("AwayTeam")

@@ -33,6 +33,10 @@ class Match {
         this.awayTeamScore = awayTeamScore
     }
 
+    get id() {
+        return this.homeTeam + this.awayTeam
+    }
+
     get totalScore() {
         return this.homeTeamScore + this.awayTeamScore
     }
