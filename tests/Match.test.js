@@ -32,11 +32,11 @@ describe('Match', () => {
     it("should update score", () => {
         match.setScore(1, 2)
         expect(match.homeTeamScore).toEqual(1)
-        expect(match.awayTeamName).toEqual(2)
+        expect(match.awayTeamScore).toEqual(2)
 
         match.setScore(0, 0)
         expect(match.homeTeamScore).toEqual(0)
-        expect(match.awayTeamName).toEqual(0)
+        expect(match.awayTeamScore).toEqual(0)
     })
 
     it("should throw an error when updating with invalid score", () => {
