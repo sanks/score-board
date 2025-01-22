@@ -5,6 +5,11 @@ class ScoreBoard {
     #matches = new Map()
 
     /**
+     * Creates a new ScoreBoard instance.
+     */
+    constructor() {}
+
+    /**
      * Starts a new match between the specified home and away teams.
      * @param {string} homeTeam - The name of the home team.
      * @param {string} awayTeam - The name of the away team.
