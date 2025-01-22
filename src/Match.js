@@ -3,30 +3,13 @@ class Match {
     awayTeamScore = 0
 
     constructor(homeTeam, awayTeam) {
-        if (
-            !homeTeam 
-            || !awayTeam 
-            || typeof homeTeam !== "string" 
-            || typeof awayTeam !== "string"
-        ) {
-            throw new Error("Failed to create a match: please pass strings as homeTeam and awayTeam")
-        }
-
+        Match.validateTeams({
+            homeTeam, 
+            awayTeam, 
+            errorText: "Failed to create a match: please pass strings as homeTeam and awayTeam"
+        })
         this.homeTeam = homeTeam
         this.awayTeam = awayTeam
-    }
-
-    static getId(homeTeam, awayTeam) {
-        if (
-            !homeTeam 
-            || !awayTeam 
-            || typeof homeTeam !== "string" 
-            || typeof awayTeam !== "string"
-        ) {
-            throw new Error("Failed to get match ID: please pass strings as homeTeam and awayTeam")
-        }
-        
-        return homeTeam + awayTeam
     }
 
     setScore(homeTeamScore, awayTeamScore) {
@@ -51,6 +34,26 @@ class Match {
 
     get totalScore() {
         return this.homeTeamScore + this.awayTeamScore
+    }
+
+    static getId(homeTeam, awayTeam) {
+        Match.validateTeams({ 
+            homeTeam, 
+            awayTeam, 
+            errorText: "Failed to get match ID: please pass strings as homeTeam and awayTeam"
+        })
+        return `${homeTeam}${awayTeam}`
+    }
+
+    static validateTeams({ homeTeam, awayTeam, errorText } = {}) {
+        if (
+            !homeTeam 
+            || !awayTeam 
+            || typeof homeTeam !== "string" 
+            || typeof awayTeam !== "string"
+        ) {
+            throw new Error(errorText)
+        }
     }
 }
 

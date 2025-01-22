@@ -15,14 +15,20 @@ class ScoreBoard {
     }
 
     getMatch(homeTeam, awayTeam) {
+        Match.validateTeams({
+            homeTeam, 
+            awayTeam, 
+            errorText: "Failed to get match: please pass strings as homeTeam and awayTeam"
+        })
         const matchId = Match.getId(homeTeam, awayTeam)
         return this.#matches.get(matchId) || null
     }
 
     getMatches() {
-        // sort matches by total score and creation date desc
         const matches = [...this.#matches.values()]
         const matchesIdToIndexMap = new Map(matches.map((m, mIndex) => ([m.id, mIndex])))
+        
+        // sort matches by total score and creation date desc
         return matches.sort((a, b) => {
             if (a.totalScore !== b.totalScore) {
                 return b.totalScore - a.totalScore
@@ -32,6 +38,11 @@ class ScoreBoard {
     }
 
     finishMatch(homeTeam, awayTeam) {
+        Match.validateTeams({
+            homeTeam, 
+            awayTeam, 
+            errorText: "Failed to finish match: please pass strings as homeTeam and awayTeam"
+        })
         const matchId = Match.getId(homeTeam, awayTeam)
         const isDeleted = this.#matches.delete(matchId)
         if (!isDeleted) {
