@@ -26,14 +26,12 @@ class ScoreBoard {
 
     getMatches() {
         const matches = [...this.#matches.values()]
-        const matchesIdToIndexMap = new Map(matches.map((m, mIndex) => ([m.id, mIndex])))
-        
         // sort matches by total score and creation date desc
         return matches.sort((a, b) => {
             if (a.totalScore !== b.totalScore) {
                 return b.totalScore - a.totalScore
             }
-            return matchesIdToIndexMap.get(b.id) - matchesIdToIndexMap.get(a.id)
+            return matches.indexOf(b) - matches.indexOf(a)
         })
     }
 
