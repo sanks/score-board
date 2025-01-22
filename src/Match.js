@@ -17,6 +17,10 @@ class Match {
         this.awayTeam = awayTeam
     }
 
+    static getId(homeTeam, awayTeam) {
+        return homeTeam + awayTeam
+    }
+
     setScore(homeTeamScore, awayTeamScore) {
         if (
             typeof homeTeamScore !== "number"
@@ -34,13 +38,12 @@ class Match {
     }
 
     get id() {
-        return this.homeTeam + this.awayTeam
+        return Match.getId(this.homeTeam, this.awayTeam)
     }
 
     get totalScore() {
         return this.homeTeamScore + this.awayTeamScore
     }
-
 }
 
 module.exports = Match
