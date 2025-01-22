@@ -32,7 +32,7 @@ describe('ScoreBoard', () => {
         expect(() => sb.startMatch("Team", "")).toThrow()
     })
 
-    it.todo("should finish match", () => {
+    it("should finish match", () => {
         sb.startMatch("Home", "Away")
         expect(sb.matches).toHaveLength(1)
         sb.finishMatch("Home", "Away")
