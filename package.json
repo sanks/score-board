@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest --watchAll --verbose",
+    "test": "jest --verbose",
+    "test:watch": "jest --watchAll --verbose",
     "docs": "jsdoc2md --files \"src/**/*.js\" > README.md"
   },
   "author": "Vadim Sanko",
